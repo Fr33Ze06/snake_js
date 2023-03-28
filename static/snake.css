@@ -49,16 +49,11 @@ html{
 }
 
 h1 {
-    z-index: 9999;
-    margin-top: 100px;
-    margin-left: 600px;
     font-size: 3em;
     color: black;
 }
 
 h2 {
-    margin-top: 700px;
-    margin-left: 600px;
     font-size: 2em;
     color: black;
 }
