@@ -91,16 +91,24 @@ button:hover {
     color: var(--couleur_texte_principal);
 }
 
-h3 {
-    margin-top: 10px;
-    margin-left: 35px;
-    font-size: 1.1em;
-}
-
 .Sign a{
     margin-left: 175px;
     margin-top: 12px;
     position: absolute;
     color: black;
     display: block;
+}
+
+#popup {
+    position: fixed;
+    width: 250px;
+    height: 200px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(235, 235, 235);
+    border-radius: 20px;
+    padding: 20px;
+    backdrop-filter: blur(5px) black;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
