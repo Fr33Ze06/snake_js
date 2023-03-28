@@ -90,7 +90,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     if (!end){
-        var jeu = setInterval(update, 75);
+        var jeu = setInterval(update, 100);
     }
     
     //Function
