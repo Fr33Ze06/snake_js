@@ -1,0 +1,106 @@
+@import url(./set.css);
+
+body {
+    background-color: var(--couleur_fond);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+
+}
+
+.container {
+    background-color: var(--couleur_principale);
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
+}
+
+h2 {
+    margin-bottom: 10%;
+}
+
+input {
+    margin-bottom: 14px;
+    background-color: var(--couleur_input);
+    border-radius: 10px;
+    padding: 14px;
+    border: none;
+    width: 100%;
+}
+
+.div_input {
+    position: relative;
+}
+
+.img_input {
+    position: absolute;
+    left: 245px;
+    top: calc(18%);
+    width: 50%;
+    opacity: 0.5;
+    transition: all 0.2s;
+}
+
+.img_input:hover {
+    cursor: pointer;
+    color: #ff4754;
+}
+
+.img_input .eye{
+    position: absolute;
+    left: 0px;
+    top: calc(18%);
+    width: 20%;
+    opacity: 0.5;
+    transition: all 0.2s;
+}
+
+.img_input .eye-off {
+    display: none;
+    position: absolute;
+    left: 0px;
+    top: 0%;
+    width: 20%;
+    opacity: 0.5;
+    transition: all 0.2s;
+}
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+}
+
+
+button {
+    padding: 10px;
+    margin-top: 24px;
+    border-radius: 10px;
+    background-color: var(--couleur_secondaire);
+    color: var(--couleur_principale);
+    border: solid var(--couleur_principale) 2px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background-color: var(--couleur_principale);
+    border: solid var(--couleur_secondaire) 2px;
+    color: var(--couleur_texte_principal);
+}
+
+h3 {
+    margin-top: 10px;
+    margin-left: 35px;
+    font-size: 1.1em;
+}
+
+.Sign a{
+    margin-left: 175px;
+    margin-top: 12px;
+    position: absolute;
+    color: black;
+    display: block;
+}
