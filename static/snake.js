@@ -1,14 +1,15 @@
 
 document.addEventListener("DOMContentLoaded", function() {
     const gameBoard = document.getElementById('case_container');
-    for (let i = 0; i < 13; i++) {
+    for (let i = 0; i < 17; i++) {
         const row = document.createElement('div');
         row.classList.add('row');
         gameBoard.appendChild(row);
       
-        for (let j = 0; j < 21; j++) {
+        for (let j = 0; j < 24; j++) {
           const caseElement = document.createElement('div');
           caseElement.classList.add('case');
+          caseElement.setAttribute('id', `${j}-${i}`);
           row.appendChild(caseElement);
         }
     }
@@ -16,11 +17,37 @@ document.addEventListener("DOMContentLoaded", function() {
     const snake = [{ x: 4, y: 2 },
                    { x: 3, y: 2 },
                    { x: 2, y: 2 }];
+
     let direction = 'right';
+    var end = false;
+
+    window.addEventListener("keydown", function(event) {
+
+        // Si la touche "d" est enfoncée
+        if (event.code === "KeyD" && direction != 'left') { // 68 est le code de la touche "d"
+            direction = 'right'
+        }
+
+        // Si la touche "d" est enfoncée
+        if (event.code === "KeyW" && direction != 'down') { // 122 est le code de la touche "z"
+            direction = 'up'
+        }
+
+        // Si la touche "d" est enfoncée
+        if (event.code === "KeyS" && direction != 'up') { // 115 est le code de la touche "s"
+            direction = 'down'
+        }
+
+        // Si la touche "d" est enfoncée
+        if (event.code === "KeyA" && direction != 'right') { // 113 est le code de la touche "q"
+            direction = 'left'
+        }
+    });
 
     function update() {
-    // Mettre à jour la position du serpent
+        // Mettre à jour la position du serpent
         const head = { x: snake[0].x, y: snake[0].y };
+
         switch (direction) {
             case 'up':
             head.y--;
@@ -45,11 +72,42 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Dessiner le serpent sur le gameboard
         snake.forEach(segment => {
-            const caseElement = gameBoard.querySelector(`[data-x="${segment.x}"][data-y="${segment.y}"]`);
-            caseElement.classList.add('snake');
+            const caseSnake = document.getElementById(`${segment.x}-${segment.y}`);
+            caseSnake.classList.add('snake');
         });
-    }
 
-    setInterval(update, 100);
+        IsEnd(head);
+    }
+    
+    
+    if (!end){
+        var jeu = setInterval(update, 75);
+    }
+    
+    
+    //Function
+    
+    function IsEnd(head) {
+        if (head.x == 0 && direction == "left"){
+            end = true;
+        } else if (head.x == 23 && direction == "right"){
+            end = true;
+        }else if (head.y == 0 && direction == "up"){
+            end = true;
+        }else if (head.y == 16 && direction == "down"){
+            end = true;
+        }
+        if (end){
+            clearInterval(jeu);
+            afficherPopup();
+        }
+    }
+    
+    function afficherPopup() {
+        const popup = document.getElementById("popup");
+        popup.style.display = "block";
+    }
 });
 
+
+//backdrop-filter: blur(5px);

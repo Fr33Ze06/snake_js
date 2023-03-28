@@ -1,0 +1,37 @@
+:root {
+    --couleur_fond: #DAE0E6;
+    --couleur_principale: #FAFAFA;
+    --couleur_secondaire: #4F46E5;
+    --couleur_texte_principal: #1A1A1A;
+    --couleur_texte_secondaire: #404040ae;
+    --couleur_input: #EDEDED;
+}
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+    /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--couleur_principale);
+    /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: var(--couleur_secondaire);
+    /* color of the scroll thumb */
+    border-radius: 10px;
+    /* roundness of the scroll thumb */
+}
+
+::selection {
+    background-color: var(--couleur_principale);
+    color: var(--couleur_secondaire);
+}

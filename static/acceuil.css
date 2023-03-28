@@ -52,7 +52,7 @@ input {
 
 .img_input .eye{
     position: absolute;
-    left: 0px;
+    left: -35px;
     top: calc(18%);
     width: 20%;
     opacity: 0.5;
@@ -62,7 +62,7 @@ input {
 .img_input .eye-off {
     display: none;
     position: absolute;
-    left: 0px;
+    left: -35px;
     top: 0%;
     width: 20%;
     opacity: 0.5;
