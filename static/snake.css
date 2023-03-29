@@ -45,7 +45,7 @@ html{
 
 .snake {
     background-color: green;
-    border: 0px solid #ffffff;
+    border: none;
 }
 
 h1 {
@@ -83,7 +83,7 @@ h2 {
 
 #popup button {
     padding: 10px;
-    margin-top: 50px;
+    margin-top: 0px;
     margin: center;
     border-radius: 10px;
     background-color: red;
@@ -96,7 +96,7 @@ h2 {
     background-color: var(--couleur_principale);
     border: black 2px;
     color: var(--couleur_texte_principal);
-    margin-top: 45px;
+    margin-top: -5px;
     color: red;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);;
 }
