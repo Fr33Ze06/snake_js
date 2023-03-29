@@ -19,6 +19,8 @@ document.addEventListener("DOMContentLoaded", function() {
                    { x: 2, y: 2 }];
 
     let direction = 'right';
+    let Score = 0;
+    GiveScore(Score)
     var end = false;
     
     var apple = AffRandomApple(snake);
@@ -66,27 +68,35 @@ document.addEventListener("DOMContentLoaded", function() {
             break;
         }
         snake.unshift(head);
-        
-        // Effacer le gameboard
-        gameBoard.querySelectorAll('.snake').forEach(segment => {
-            segment.classList.remove('snake');
-        });
 
-        // Dessiner le serpent sur le gameboard
-        snake.forEach(segment => {
-            const caseSnake = document.getElementById(`${segment.x}-${segment.y}`);
-            caseSnake.classList.add('snake');
-        });
-
-        if (head.x == apple.x && head.y == apple.y){
-            const caseApple = document.getElementById(`${apple.x}-${apple.y}`);
-            caseApple.classList.remove('apple');
-            apple = AffRandomApple(snake)
-        }else{
-            snake.pop();
-        }
+        console.log(snake)
 
         IsEnd(head,snake);
+        
+        if (end != true){
+            // Effacer le gameboard
+            gameBoard.querySelectorAll('.snake').forEach(segment => {
+                segment.classList.remove('snake');
+            });
+
+            // Dessiner le serpent sur le gameboard
+            snake.forEach(segment => {
+                const caseSnake = document.getElementById(`${segment.x}-${segment.y}`);
+                caseSnake.classList.add('snake');
+            });
+
+            if (head.x == apple.x && head.y == apple.y){
+                Score++;
+                GiveScore(Score);
+                const caseApple = document.getElementById(`${apple.x}-${apple.y}`);
+                caseApple.classList.remove('apple');
+                apple = AffRandomApple(snake)
+            }else{
+                snake.pop();
+            }
+        }
+            
+
     }
     
     if (!end){
@@ -96,15 +106,16 @@ document.addEventListener("DOMContentLoaded", function() {
     //Function
     
     function IsEnd(head,snake) {
-        if (head.x == 0 && direction == "left"){
+        if (head.x == -1 && direction == "left"){
             end = true;
-        } else if (head.x == 23 && direction == "right"){
+        } else if (head.x == 24 && direction == "right"){
             end = true;
-        }else if (head.y == 0 && direction == "up"){
+        }else if (head.y == -1 && direction == "up"){
             end = true;
-        }else if (head.y == 16 && direction == "down"){
+        }else if (head.y == 17 && direction == "down"){
             end = true;
         }
+
         for (var i=1; i < snake.length; i++){
             if (head.x == snake[i].x && head.y == snake[i].y){
                 end = true
@@ -139,19 +150,13 @@ document.addEventListener("DOMContentLoaded", function() {
         return  {x: randomX, y: randomY };
     }
 
-    function IsTouchApple(snake,apple){
-        if (head.x == apple.x && head.y == apple.y){
-
-            
-        }
+    function GiveScore(Score){
+        var scoreElement = document.getElementById("score");
+        scoreElement.innerHTML = Score;
     }
     
     function afficherPopup() {
         const popup = document.getElementById("popup");
         popup.style.display = "block";
-    }
-
-    function HTMLreload(){
-        location.reload();
     }
 });
