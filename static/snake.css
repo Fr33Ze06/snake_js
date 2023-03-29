@@ -45,7 +45,7 @@ html{
 
 .snake {
     background-color: green;
-    border: none;
+    border: 0px;
 }
 
 h1 {

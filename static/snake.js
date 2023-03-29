@@ -19,14 +19,13 @@ document.addEventListener("DOMContentLoaded", function() {
                    { x: 2, y: 2 }];
 
     let direction = 'right';
+    let IsTurning = false;
     let Score = 0;
     GiveScore(Score)
     var end = false;
-    
     var apple = AffRandomApple(snake);
 
     window.addEventListener("keydown", function(event) {
-
         // Si la touche "d" est enfoncée
         if (event.code === "KeyD" && direction != 'left') { // 68 est le code de la touche "d"
             direction = 'right'
@@ -55,21 +54,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
         switch (direction) {
             case 'up':
-            head.y--;
-            break;
+                head.y--;
+                break;
             case 'down':
-            head.y++;
-            break;
+                head.y++;
+                break;
             case 'left':
-            head.x--;
-            break;
+                head.x--;
+                break;
             case 'right':
-            head.x++;
-            break;
+                head.x++;
+                break;
         }
+        
         snake.unshift(head);
-
-        console.log(snake)
 
         IsEnd(head,snake);
         
@@ -100,7 +98,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     
     if (!end){
-        var jeu = setInterval(update, 100);
+        var jeu = setInterval(update, 75);
     }
     
     //Function
