@@ -149,8 +149,10 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function GiveScore(Score){
-        var scoreElement = document.getElementById("score");
+        var scoreElement = document.getElementById("scoreMenu");
+        var scoreElement2 = document.getElementById("scorePopup");
         scoreElement.innerHTML = Score;
+        scoreElement2.innerHTML = Score;
     }
     
     function afficherPopup() {

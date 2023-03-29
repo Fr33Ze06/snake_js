@@ -92,7 +92,7 @@ button:hover {
 }
 
 .Sign a{
-    margin-left: 175px;
+    position: center;
     margin-top: 12px;
     position: absolute;
     color: black;

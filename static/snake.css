@@ -51,18 +51,15 @@ html{
 h1 {
     font-size: 3em;
     color: black;
-    position: center;
-}
-
-h2 {
-    font-size: 2em;
-    color: black;
+    text-align: center;
+    top: 30px;
+    position: relative;
 }
 
 #popup {
     position: fixed;
-    width: 250px;
-    height: 200px;
+    width: 300px;
+    height: 250px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -75,26 +72,32 @@ h2 {
 
 #popup p{
     text-align: center;
-    margin-top: 40px;
-    margin-left: 40px;
-    font-size: 1em;
+    margin: center;
+    position: relative;
+    top: 20px;
+    margin-top: 30px;
+    font-size: 1.2em;
+    font-family: 'Montserrat', sans-serif;
     color: black;
 }
 
 #popup button {
+    border: none;
     padding: 10px;
-    margin-top: 0px;
+    top: 50px;
+    left: 25%;
     margin: center;
+    position: relative;
     border-radius: 10px;
     background-color: red;
+    width: 50%;
+    height: 15%;
     color: white;
-    border: black 2px;
     transition: 0.3s;
 }
 
 #popup button:hover {
     background-color: var(--couleur_principale);
-    border: black 2px;
     color: var(--couleur_texte_principal);
     margin-top: -5px;
     color: red;
@@ -103,4 +106,12 @@ h2 {
 
 .apple{
     background-color: red;
+}
+
+#aff p{
+    font-size: 2em;
+    color: black;
+    text-align: center;
+    top: 830px;
+    position: relative;
 }
