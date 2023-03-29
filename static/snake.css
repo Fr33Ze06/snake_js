@@ -93,7 +93,7 @@ h1 {
     width: 50%;
     height: 15%;
     color: white;
-    transition: 0.3s;
+    transition: 0.3s ease-in-out;
 }
 
 #popup button:hover {
@@ -101,11 +101,12 @@ h1 {
     color: var(--couleur_texte_principal);
     margin-top: -5px;
     color: red;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .apple{
     background-color: red;
+    border-radius: 50%;
 }
 
 #aff p{
