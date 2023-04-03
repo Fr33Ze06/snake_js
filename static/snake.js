@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const row = document.createElement('div');
         row.classList.add('row');
         gameBoard.appendChild(row);
-      
+        
         for (let j = 0; j < 24; j++) {
             const caseElement = document.createElement('div');
             caseElement.classList.add('case');
@@ -13,116 +13,117 @@ document.addEventListener("DOMContentLoaded", function() {
             row.appendChild(caseElement);
         }
     }
-
+    
     const snake = [{ x: 4, y: 2 },
-                   { x: 3, y: 2 },
-                   { x: 2, y: 2 }];
-
-    let direction = 'right';
-    let IsTurning = false;
-    let Score = 0;
-    GiveScore(Score)
-    var end = false;
-    var apple = AffRandomApple(snake);
-
-    window.addEventListener("keydown", function(event) {
-        // Si la touche "d" est enfoncée
-        if (event.code === "KeyD" && direction != 'left') { // 68 est le code de la touche "d"
-            direction = 'right'
-        }
-
-        // Si la touche "d" est enfoncée
-        if (event.code === "KeyW" && direction != 'down') { // 122 est le code de la touche "z"
-            direction = 'up'
-        }
-
-        // Si la touche "d" est enfoncée
-        if (event.code === "KeyS" && direction != 'up') { // 115 est le code de la touche "s"
-            direction = 'down'
-        }
-
-        // Si la touche "d" est enfoncée
-        if (event.code === "KeyA" && direction != 'right') { // 113 est le code de la touche "q"
-            direction = 'left'
-        }
-    });
-
-
-    function update() {
-        // Mettre à jour la position du serpent
-        const head = { x: snake[0].x, y: snake[0].y };
-
-        switch (direction) {
-            case 'up':
-                head.y--;
-                break;
-            case 'down':
-                head.y++;
-                break;
-            case 'left':
-                head.x--;
-                break;
-            case 'right':
-                head.x++;
-                break;
-        }
+        { x: 3, y: 2 },
+        { x: 2, y: 2 }];
         
-        snake.unshift(head);
-
-        IsEnd(head,snake);
+        let direction = 'right';
+        let Score = 0;
+        GiveScore(Score)
+        var end = false;
+        var apple = AffRandomApple(snake);
         
-        if (end != true){
-            // Effacer le gameboard
-            gameBoard.querySelectorAll('.snake').forEach(segment => {
-                segment.classList.remove('snake');
-            });
-
-            // Dessiner le serpent sur le gameboard
-            snake.forEach(segment => {
-                const caseSnake = document.getElementById(`${segment.x}-${segment.y}`);
-                caseSnake.classList.add('snake');
-            });
-
-            if (head.x == apple.x && head.y == apple.y){
-                Score++;
-                GiveScore(Score);
-                const caseApple = document.getElementById(`${apple.x}-${apple.y}`);
-                caseApple.classList.remove('apple');
-                apple = AffRandomApple(snake)
-            }else{
-                snake.pop();
-            }
-        }
+        window.addEventListener("keydown", function(event) {
             
-
-    }
-    
-    if (!end){
-        var jeu = setInterval(update, 75);
-    }
-    
-    //Function
-    
-    function IsEnd(head,snake) {
-        if (head.x == -1 && direction == "left"){
-            end = true;
-        } else if (head.x == 24 && direction == "right"){
-            end = true;
-        }else if (head.y == -1 && direction == "up"){
-            end = true;
-        }else if (head.y == 17 && direction == "down"){
-            end = true;
-        }
-
-        for (var i=1; i < snake.length; i++){
-            if (head.x == snake[i].x && head.y == snake[i].y){
-                end = true
+            // Si la touche "d" est enfoncée
+            if (event.code === "KeyD" && direction != 'left') { // 68 est le code de la touche "d"
+                direction = 'right'
             }
-        }
-        if (end){
-            clearInterval(jeu);
-            afficherPopup();
-        }
+            
+            // Si la touche "d" est enfoncée
+            if (event.code === "KeyW" && direction != 'down') { // 122 est le code de la touche "z"
+                direction = 'up'
+            }
+            
+            // Si la touche "d" est enfoncée
+            if (event.code === "KeyS" && direction != 'up') { // 115 est le code de la touche "s"   
+                direction = 'down'
+            }
+            
+            // Si la touche "d" est enfoncée
+            if (event.code === "KeyA" && direction != 'right') { // 113 est le code de la touche "q"
+                direction = 'left'
+            }
+        });
+        
+        
+        function update() {
+            // Mettre à jour la position du serpent
+            const head = { x: snake[0].x, y: snake[0].y };
+            
+            switch (direction) {
+                case 'up':
+                    head.y--;
+                    break;
+                    case 'down':
+                        head.y++;
+                        break;
+                        case 'left':
+                            head.x--;
+                            break;
+                            case 'right':
+                                head.x++;
+                                break;
+                            }
+                            snake.unshift(head);
+                            
+                            console.log(snake)
+                            
+                            IsEnd(head,snake);
+                            
+                            if (end != true){
+                                // Effacer le gameboard
+                                gameBoard.querySelectorAll('.snake').forEach(segment => {
+                                    segment.classList.remove('snake');
+                                });
+                                
+                                // Dessiner le serpent sur le gameboard
+                                snake.forEach(segment => {
+                                    const caseSnake = document.getElementById(`${segment.x}-${segment.y}`);
+                                    caseSnake.classList.add('snake');
+                                });
+                                
+                                if (head.x == apple.x && head.y == apple.y){
+                                    Score++;
+                                    GiveScore(Score);
+                                    const caseApple = document.getElementById(`${apple.x}-${apple.y}`);
+                                    caseApple.classList.remove('apple');
+                                    apple = AffRandomApple(snake)
+                                }else{
+                                    snake.pop();
+                                }
+                            }
+                            
+                            
+                        }
+                        
+                        if (!end){
+                            var jeu = setInterval(update, 100);
+                        }
+    
+                        //Function
+                        
+                        function IsEnd(head,snake) {
+                            if (head.x == -1 && direction == "left"){
+                                end = true;
+                            } else if (head.x == 24 && direction == "right"){
+                                end = true;
+                            }else if (head.y == -1 && direction == "up"){
+                                end = true;
+                            }else if (head.y == 17 && direction == "down"){
+                                end = true;
+                            }
+                            
+                            for (var i=1; i < snake.length; i++){
+                                if (head.x == snake[i].x && head.y == snake[i].y){
+                                    end = true
+                                }
+                            }
+                            if (end){
+                                clearInterval(jeu);
+                                afficherPopup();
+                            }
     }
     
     function AffRandomApple(snake){
@@ -147,7 +148,7 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log(caseApple)
         return  {x: randomX, y: randomY };
     }
-
+    
     function GiveScore(Score){
         var scoreElement = document.getElementById("scoreMenu");
         var scoreElement2 = document.getElementById("scorePopup");
@@ -157,6 +158,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     function afficherPopup() {
         const popup = document.getElementById("popup");
+        const htm = document.getElementById("html");
         popup.style.display = "block";
+        htm.style.filter = blur("7px");
     }
 });
