@@ -6,11 +6,13 @@
         <link href="../static/acceuil.css" rel="stylesheet" type="text/css" />
         <title>SNAKE</title>
         <script src="../static/script.js"></script>
+        <?php include 'traitement.php'; ?>
     </head>
+
     <body>
         <div class="container">
             <h2>Bienvenue sur Snake</h2>
-            <form action="connexion.php" class="formulaire" id="form_log">
+            <form method="POST" class="formulaire" id="form_log">
                 <input id="in_pseudo" type="text" placeholder="Nom du joueur" required name="pseudo">
                 <div class="div_input"><input id="in_passwd" type="password" placeholder="Mot de passe" required name="password">
                     <span class="img_input">
@@ -28,4 +30,5 @@
             <div id="col2" style="flex: 1;">Score</div>
         </div>
     </body>
+    
 </html>
