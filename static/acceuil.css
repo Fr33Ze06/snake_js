@@ -91,21 +91,28 @@ button:hover {
     color: var(--couleur_texte_principal);
 }
 
-#popup a{
+.Sign a{
     position: center;
     margin-top: 12px;
     position: absolute;
     color: black;
     display: block;
-    list-style: none;
+}
+
+#popup p{
+    left: 25%;
+    text-align: center;
+    position: relative;
+    color: black;
+    font-size: 1.5em;
 }
 
 #popup {
     position: fixed;
     width: 500px;
-    height: 200px;
+    height: 500px;
     top: 50%;
-    left: 50%;
+    left: 13%;
     transform: translate(-50%, -50%);
     background-color: rgb(255, 253, 253);
     border-radius: 20px;
@@ -113,4 +120,23 @@ button:hover {
     backdrop-filter: blur(5px) black;
     box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
     display: block;
+}
+
+#col1{
+    left: -35%;
+    top: 70px;
+    text-align: center;
+    position: relative;
+    color: black;
+    font-size: 1em;
+}
+
+#col2{
+    flex-direction: column;
+    left: -10%;
+    top: 72px;
+    text-align: center;
+    position: relative;
+    color: black;
+    font-size: 1em;
 }
