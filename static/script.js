@@ -29,4 +29,28 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+function enregistrer() {
+    // Récupération des entrées du formulaire
+    let pseudo = document.getElementById('in_pseudo').value;
+    let mdp = document.getElementById('in_passwd').value;
+    
+    // Envoi des données au script PHP avec la méthode POST
+    fetch('../traitement.php', {
+        method: 'POST',
+        body: new URLSearchParams({
+            'pseudo': pseudo,
+            'mdp': mdp
+        })
+    })
+    .then(response => {
+        if (response.ok) {
+            console.log('Enregistrement réussi !');
+        } else {
+            console.error('Erreur lors de l\'enregistrement');
+        }
+    })
+    .catch(error => {
+        console.error(error);
+    });
+}
 

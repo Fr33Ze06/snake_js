@@ -107,6 +107,7 @@ h1 {
 
 .apple{
     background-color: red;
+    border-radius: 50%;
 }
 
 #aff p{

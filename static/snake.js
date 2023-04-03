@@ -25,26 +25,27 @@ document.addEventListener("DOMContentLoaded", function() {
     var apple = AffRandomApple(snake);
         
     window.addEventListener("keydown", function(event) {
-            
+
         // Si la touche "d" est enfoncée
-        if (event.code === "KeyD" && direction != 'left') { // 68 est le code de la touche "d"
+        if (event.code === "KeyD" && direction != 'left' && (snake[0].x+1 != snake[1].x)) { // 68 est le code de la touche "d"
             direction = 'right'
         }
             
         // Si la touche "d" est enfoncée
-        if (event.code === "KeyW" && direction != 'down') { // 122 est le code de la touche "z"
+        if (event.code === "KeyW" && direction != 'down' && (snake[0].y+1 != snake[1].y)) { // 122 est le code de la touche "z"
             direction = 'up'
         }
             
         // Si la touche "d" est enfoncée
-        if (event.code === "KeyS" && direction != 'up') { // 115 est le code de la touche "s"   
+        if (event.code === "KeyS" && direction != 'up' && (snake[0].y-1 != snake[1].y)) { // 115 est le code de la touche "s"   
             direction = 'down'
         }
             
         // Si la touche "d" est enfoncée
-        if (event.code === "KeyA" && direction != 'right') { // 113 est le code de la touche "q"
+        if (event.code === "KeyA" && direction != 'right' && (snake[0].x-1 != snake[1].x)) { // 113 est le code de la touche "q"
             direction = 'left'
         }
+        
     });
         
         
@@ -66,6 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 head.x++;
                 break;
         }
+
         snake.unshift(head);
                             
         console.log(snake)
