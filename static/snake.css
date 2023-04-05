@@ -34,6 +34,7 @@ html{
 }
   
 .case {
+    transition: transform 0.1s ease-in-out;
     box-sizing: border-box;
     width: 100%;
     margin: 0;
@@ -44,6 +45,7 @@ html{
 }
 
 .snake {
+    transition: transform 0.1s ease-in-out;
     background-color: green;
     border: none 0px;
 }
