@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
   const cells = document.querySelectorAll(".cell");
 let currentPlayer = "red";
+let currentPlayer2 = "yellow";
 
 cells.forEach((cell) => {
   cell.addEventListener("click", (e) => {
@@ -22,11 +23,12 @@ cells.forEach((cell) => {
     if (targetCell.classList.contains("empty")) {
       targetCell.classList.remove("empty");
       targetCell.classList.add(currentPlayer);
+      targetCell.classList.add(currentPlayer2);
       checkWin();
-      if(currentPlayer === "red"){
-        currentPlayer = "yellow";
+      if(currentPlayer){
+        currentPlayer2;
       }else{
-        currentPlayer = "red";
+        currentPlayer;
       }
     }
   });
@@ -54,10 +56,10 @@ function checkWin() {
   for (let i = 0; i < rows.length; i++) {
     for (let j = 0; j < 4; j++) {
       if (
-        rows[i].children[j].classList.contains(currentPlayer) &&
-        rows[i].children[j + 1].classList.contains(currentPlayer) &&
-        rows[i].children[j + 2].classList.contains(currentPlayer) &&
-        rows[i].children[j + 3].classList.contains(currentPlayer)
+        rows[i].children[j].classList.contains(currentPlayer,currentPlayer2) &&
+        rows[i].children[j + 1].classList.contains(currentPlayer,currentPlayer2) &&
+        rows[i].children[j + 2].classList.contains(currentPlayer,currentPlayer2) &&
+        rows[i].children[j + 3].classList.contains(currentPlayer,currentPlayer2)
       ) {
         alert(`${currentPlayer} wins!`);
         resetBoard();
@@ -70,10 +72,10 @@ function checkWin() {
   for (let i = 0; i < cols.length; i++) {
     for (let j = 0; j < 3; j++) {
       if (
-        cols[i].classList.contains(currentPlayer) &&
-        cols[i + 7].classList.contains(currentPlayer) &&
-        cols[i + 14].classList.contains(currentPlayer) &&
-        cols[i + 21].classList.contains(currentPlayer)
+        cols[i].classList.contains(currentPlayer,currentPlayer2) &&
+        cols[i + 7].classList.contains(currentPlayer,currentPlayer2) &&
+        cols[i + 14].classList.contains(currentPlayer,currentPlayer2) &&
+        cols[i + 21].classList.contains(currentPlayer,currentPlayer2)
       ) {
         alert(`${currentPlayer} wins!`);
         resetBoard();
@@ -85,10 +87,10 @@ function checkWin() {
   // Check diagonals
   for (let i = 0; i < diagonals.length; i++) {
     if (
-      diagonals[i][0].classList.contains(currentPlayer) &&
-      diagonals[i][1].classList.contains(currentPlayer) &&
-      diagonals[i][2].classList.contains(currentPlayer) &&
-      diagonals[i][3].classList.contains(currentPlayer)
+      diagonals[i][0].classList.contains(currentPlayer,currentPlayer2) &&
+      diagonals[i][1].classList.contains(currentPlayer,currentPlayer2) &&
+      diagonals[i][2].classList.contains(currentPlayer,currentPlayer2) &&
+      diagonals[i][3].classList.contains(currentPlayer,currentPlayer2)
     ) {
       alert(`${currentPlayer} wins!`);
       resetBoard();
