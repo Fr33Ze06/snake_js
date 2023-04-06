@@ -1,0 +1,87 @@
+@import url(./set.css);
+
+body {
+    background-color: var(--couleur_fond);
+    display: flex;
+    height: 100vh;
+
+}
+.game {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1{
+    position: relative;
+    top: 2%;
+}
+
+h3{
+    position: relative;
+    top: 46%;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-around;
+    margin: 30px 0;
+    position: relative;
+    top: 5%;
+}
+
+.player-score{
+    left: -5%;
+    position: relative;
+}
+
+.computer-score{
+    left: 5%;
+    position: relative;
+}
+
+.choices{
+    top: 50%;
+    position: relative;
+}
+
+.choice {
+    font-size: 20px;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #5c74ff;
+    top: 50%;
+    position: relative;
+}
+
+.choice:hover {
+    background-color: #312dff;
+}
+
+.result {
+    margin: 30px 0;
+    position: relative;
+    top: 50%;
+    left: -2.5%;
+}
+
+#reset {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color:var(--couleur_fond);
+    transition: 0.3s;
+}
+
+#reset:hover {
+    background-color: var(--couleur_principale);
+    border: black 2px;
+    color: var(--couleur_texte_principal);
+    margin-top: -5px;
+    color: red;
+    box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+}

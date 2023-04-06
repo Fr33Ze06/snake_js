@@ -1,0 +1,104 @@
+const choices = document.querySelectorAll('.choice');
+const playerScoreEl = document.getElementById('player-score');
+const computerScoreEl = document.getElementById('computer-score');
+const resultEl = document.getElementById('result');
+const resetEl = document.getElementById('reset');
+
+let playerScore = 0;
+let computerScore = 0;
+
+// Jouer un tour
+function play(e) {
+    resetEl.style.display = 'none';
+    const playerChoice = e.target.id;
+    const computerChoice = getComputerChoice();
+    showChoices(playerChoice, computerChoice);
+    const winner = getWinner(playerChoice, computerChoice);
+    showResult(winner, computerChoice);
+    updateScore(winner);
+}
+
+// Obtenir le choix de l'ordinateur
+function getComputerChoice() {
+    const choices = ['Pierre', 'Papier', 'Ciseaux'];
+    const randomNumber = Math.floor(Math.random() * 3);
+    return choices[randomNumber];
+}
+
+// Afficher les choix
+function showChoices(playerChoice, computerChoice) {
+    resultEl.innerHTML = `
+        <p>Vous avez choisi ${playerChoice}.</p>
+        <p>L'ordinateur a choisi ${computerChoice}.</p>
+    `;
+}
+
+// Obtenir le gagnant
+function getWinner(playerChoice, computerChoice) {
+    if (playerChoice === computerChoice) {
+        return 'tie';
+    } else if (playerChoice === 'pierre') {
+        if (computerChoice === 'papier') {
+            return 'computer';
+        } else {
+            return 'player';
+        }
+    } else if (playerChoice === 'papier') {
+        if (computerChoice === 'ciseaux') {
+            return 'computer';
+        } else {
+            return 'player';
+        }
+    } else if (playerChoice === 'ciseaux') {
+        if (computerChoice === 'pierre') {
+            return 'computer';
+        } else {
+            return 'player';
+        }
+    }
+}
+
+// Afficher le résultat
+function showResult(winner, computerChoice) {
+    if (winner === 'player') {
+        resultEl.innerHTML += `<p>Vous avez gagné !</p>`;
+    } else if (winner === 'computer') {
+        resultEl.innerHTML += `<p>L'ordinateur a gagné avec ${computerChoice}.</p>`;
+    } else {
+        resultEl.innerHTML += `<p>Match nul !</p>`;
+    }
+}
+
+// Mettre à jour le score
+function updateScore(winner) {
+    if (winner === 'player') {
+        playerScore++;
+        playerScoreEl.innerText = playerScore;
+    } else if (winner === 'computer') {
+        computerScore++;
+        computerScoreEl.innerText = computerScore;
+    }
+    if (playerScore === 5 || computerScore === 5) {
+        endGame();
+    }
+}
+
+// Fin de partie
+function endGame() {
+    choices.forEach(choice => choice.removeEventListener('click', play));
+    resetEl.style.display = 'block';
+    resetEl.addEventListener('click', reset);
+}
+
+// Réinitialiser le jeu
+function reset() {
+    playerScore = 0;
+    computerScore = 0;
+    playerScoreEl.innerText = playerScore;
+    computerScoreEl.innerText = computerScore;
+    resultEl.innerHTML = '';
+    resetEl.style.display = 'none';
+    choices.forEach(choice => choice.addEventListener('click', play));
+}
+
+choices.forEach(choice => choice.addEventListener('click', play));

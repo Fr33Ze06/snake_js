@@ -1,0 +1,32 @@
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    width: 350px;
+    height: 300px;
+    margin: 50px auto;
+    border: 5px solid #333;
+    border-radius: 10px;
+}
+  
+.row {
+    display: flex;
+    width: 100%;
+ }
+  
+.cell {
+    width: calc(100% / 7);
+    height: calc(100% / 6);
+    border: 1px solid #333;
+}
+  
+.empty {
+    background-color: #fff;
+}
+  
+.red {
+    background-color: #f00;
+}
+  
+.yellow {
+    background-color: #ff0;
+}
