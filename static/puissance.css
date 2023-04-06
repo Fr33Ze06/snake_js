@@ -1,3 +1,12 @@
+@import url(./set.css);
+
+body {
+    background-color: var(--couleur_fond);
+    display: flex;
+    height: 100vh;
+
+}
+
 .board {
     display: flex;
     flex-wrap: wrap;
@@ -5,13 +14,20 @@
     height: 300px;
     margin: 50px auto;
     border: 5px solid #333;
+    position: relative;
+    top: 40%;
     border-radius: 10px;
+}
+h1{
+    position: relative;
+    top: 2%;
+    left: 50%;
 }
   
 .row {
     display: flex;
     width: 100%;
- }
+}
   
 .cell {
     width: calc(100% / 7);
@@ -19,14 +35,17 @@
     border: 1px solid #333;
 }
   
-.empty {
+.cell {
     background-color: #fff;
+    height: 100%;
 }
   
 .red {
     background-color: #f00;
+    border-radius: 20px;
 }
   
 .yellow {
     background-color: #ff0;
+    border-radius: 20px;
 }

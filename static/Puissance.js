@@ -24,7 +24,7 @@ cells.forEach((cell) => {
       targetCell.classList.add(currentPlayer);
       checkWin();
       if(currentPlayer === "red"){
-        currentPlayer ="yellow";
+        currentPlayer = "yellow";
       }else{
         currentPlayer = "red";
       }
