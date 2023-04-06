@@ -1,0 +1,402 @@
+@import url(./set.css);
+
+body {
+    background-color: var(--couleur_fond);
+}
+
+button {
+    border: 0;
+    padding: 0;
+    background: transparent;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 20px;
+}
+
+@media (width >=500px) {
+    button {
+        font-size: 16px;
+    }
+}
+
+:is(.navbar, .burger, .dropdowns) {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.navbar {
+    position: fixed;
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    height: 60px;
+    background: var(--couleur_principale);
+}
+
+.button {
+    height: 40px;
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 25px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: var(--couleur_secondaire);
+    color: var(--couleur_input);
+    transition: 0.3s;
+}
+
+.button:hover {
+    background-color: var(--couleur_principale);
+    border: solid var(--couleur_secondaire) 2px;
+    color: var(--couleur_texte_principal);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+}
+
+.button>img {
+    display: none;
+}
+
+
+.dropdowns {
+    width: 80px;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    opacity: 0;
+    visibility: hidden;
+    transition-property: opacity, visibility;
+    transition-duration: 0.3s;
+}
+
+@media (width >=500px) {
+    .dropdowns {
+        position: static;
+        flex-direction: row;
+        justify-content: flex-end;
+        background: transparent;
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+.dropdown {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.dropdown-menu {
+    display: grid;
+    margin-bottom: 28px;
+}
+
+@media (width >=500px) {
+    .dropdown {
+        height: 100%;
+        flex-direction: row;
+    }
+
+    .dropdown-menu {
+        position: absolute;
+        top: 75px;
+        right: 10px;
+        width: 180px;
+        padding: 6px 24px 10px;
+        border-radius: 10px 25px 10px 25px / 10px 25px 10px 25px;
+        margin-bottom: 0;
+        place-items: start;
+        background: var(--couleur_principale);
+        opacity: 0;
+        visibility: hidden;
+        translate: 0 24px;
+        transition: 0.3s;
+    }
+
+    .dropdown:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        translate: 0 0;
+    }
+
+
+}
+
+.dropdown-menu>button {
+    border-radius: 10px;
+    color: var(--couleur_texte_principal);
+    opacity: 1;
+    height: 40px;
+}
+
+@media (width >=500px) {
+    .dropdown-menu>button {
+        opacity: 0.6;
+    }
+
+    .dropdown:hover .button {
+        opacity: 1;
+    }
+}
+
+.dropdown-menu>button:hover {
+    opacity: 1;
+    color: var(--couleur_secondaire);
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    position: fixed;
+    overflow: hidden;
+    top: 60px;
+    left: 0;
+    width: 300px;
+    background: var(--couleur_principale);
+    border-top: 1px solid rgba(217, 217, 217, 0.4);
+    height: calc(100% - 60px);
+}
+
+.div_tags {
+    margin: 25px 20px 0 0;
+    font-size: large;
+}
+
+.element_tag {
+    margin: 20px 0 0 20px;
+
+}
+
+.tag {
+    font-weight: 400;
+    font-size: large;
+    position: relative;
+}
+
+
+
+.tag span {
+    padding-bottom: 7px;
+    letter-spacing: 4px;
+    font-size: 14px;
+    padding-right: 15px;
+    text-transform: uppercase;
+}
+
+
+.tag:hover svg {
+    transform: translateX(0);
+}
+
+.tag:active svg {
+    transform: scale(0.9);
+}
+
+.hover-underline-animation {
+    position: relative;
+    padding-bottom: 20px;
+}
+
+.hover-underline-animation:after {
+    content: "";
+    position: absolute;
+    width: calc(100% + 30px);
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: -30px;
+    background-color: var(--couleur_secondaire);
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.tag:hover .hover-underline-animation:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+.tag1::before {
+    /*content: url(../../img/snake.png);
+    position: absolute;*/
+    left: -20px;
+}
+
+.tag2::before {
+    /*content: url(../../img/pierre-papier-ciseaux.png);
+    height: 1%; /* définir la hauteur souhaitée */
+    position: relative;
+    text-align: center;
+    align-items: center;
+}
+
+.element_tag {
+    /*content: url(../../img/pierre-papier-ciseaux.png);
+    height: 1%; /* définir la hauteur souhaitée */
+    position: relative;
+    left: 35%;
+}
+
+#tabsnake{
+    position: relative;
+    font-size: 1em;
+    left: -1.5%;
+}
+
+#tabsnake tr th{
+    padding: 10px 10px;
+}
+
+.div_text {
+    /*content: url(../../img/pierre-papier-ciseaux.png);
+    height: 1%; /* définir la hauteur souhaitée */
+    position: relative;
+    text-align: center;
+    align-items: center;
+}
+
+#tabpierre{
+    position: relative;
+    left: -1%;
+    font-size: 1.2em;
+}
+
+#tabpierre tr th{
+    padding: 10px 10px;
+}
+
+#bodypierre{
+    position: relative;
+    left: -8%;
+}
+
+#bodypierre tr td{
+    padding: 0 10px;
+}
+
+.div_button_aside {
+    /*content: url(../../img/pierre-papier-ciseaux.png);
+    height: 1%; /* définir la hauteur souhaitée */
+    position: relative;
+    left: 3%;
+}
+
+.div_button_aside button {
+    /*content: url(../../img/pierre-papier-ciseaux.png);
+    height: 1%; /* définir la hauteur souhaitée */
+    position: relative;
+    left: 25%;
+}
+
+#tabpuissance{
+    position: relative;
+    left: -3.8%;
+    font-size: 1.2em;
+}
+
+#tabpuissance tr th{
+    padding: 10px 10px;
+}
+
+thead{
+    padding: 20%;
+}
+
+h3{
+    position: relative;
+    left: 9px;
+}
+
+.tag3::before {
+    content: url(../../Assets/Images/icon_tag/code-line.svg);
+    position: absolute;
+    left: -20px;
+}
+
+.tag4::before {
+    content: url(../../Assets/Images/icon_tag/cake.svg);
+    position: absolute;
+    left: -20px;
+}
+
+.info_aside {
+    margin: 10% 0 6% 10%;
+    width: 80%;
+    line-height: 28px;
+    text-align: center;
+}
+
+hr {
+    position: relative;
+    left: -100%;
+    width: 300%;
+    margin-bottom: 10%;
+    margin-top: 10%;
+}
+
+.button_secondary {
+    margin-top: 10%;
+    height: 50px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 25px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: var(--couleur_principale);
+    color: var(--couleur_texte_principal);
+    border: solid var(--couleur_secondaire) 2px;
+    transition: 0.3s;
+}
+
+.button_secondary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+}
+
+.tag_mobile {
+    margin-top: 20%;
+    text-align: center;
+}
+
+@media screen and (width < 500px) {
+    .sidebar {
+        display: none;
+    }
+
+    .tag1::before {
+        content: url(../../Assets/Images/icon_tag/game.svg);
+        position: absolute;
+        left: 0;
+    }
+
+    .tag2::before {
+        content: url(../../Assets/Images/icon_tag/football.svg);
+        position: absolute;
+        left: 0;
+    }
+
+    .tag3::before {
+        content: url(../../Assets/Images/icon_tag/code-line.svg);
+        position: absolute;
+        left: 0;
+    }
+
+    .tag4::before {
+        content: url(../../Assets/Images/icon_tag/cake.svg);
+        position: absolute;
+        left: 0;
+    }
+}
