@@ -66,10 +66,15 @@ h3{
     position: relative;
     top: 50%;
     left: -2.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 #reset {
     padding: 10px 20px;
+    margin-top: 25px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -81,7 +86,11 @@ h3{
     background-color: var(--couleur_principale);
     border: black 2px;
     color: var(--couleur_texte_principal);
-    margin-top: -5px;
+    margin-top: 10px;
     color: red;
     box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
+}
+
+#countdown {
+    color: black;
 }

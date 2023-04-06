@@ -3,9 +3,11 @@ const playerScoreEl = document.getElementById('player-score');
 const computerScoreEl = document.getElementById('computer-score');
 const resultEl = document.getElementById('result');
 const resetEl = document.getElementById('reset');
+const countdownEl = document.getElementById('countdown');
 
 let playerScore = 0;
 let computerScore = 0;
+let timer;
 
 // Jouer un tour
 function play(e) {
@@ -18,9 +20,24 @@ function play(e) {
     updateScore(winner);
 }
 
+function countdown() {
+    let count = 6;
+    countdownEl.innerText = count;
+    let words = ["un", "deux", "trois", "Pierre", "Feuille", "Ciseaux"];
+    let i = 0;
+    timer = setInterval(function() {
+        count--;
+        countdownEl.innerText = words[i];
+        i++;
+        if (count === 0) {
+            clearInterval(timer);
+            playRandom();
+        }
+    }, 1000);
+}
 // Obtenir le choix de l'ordinateur
 function getComputerChoice() {
-    const choices = ['Pierre', 'Papier', 'Ciseaux'];
+    const choices = ['rock', 'paper', 'scissors'];
     const randomNumber = Math.floor(Math.random() * 3);
     return choices[randomNumber];
 }
@@ -37,25 +54,38 @@ function showChoices(playerChoice, computerChoice) {
 function getWinner(playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
         return 'tie';
-    } else if (playerChoice === 'pierre') {
-        if (computerChoice === 'papier') {
+    } else if (playerChoice === 'rock') {
+        if (computerChoice === 'paper') {
             return 'computer';
         } else {
             return 'player';
         }
-    } else if (playerChoice === 'papier') {
-        if (computerChoice === 'ciseaux') {
+    } else if (playerChoice === 'paper') {
+        if (computerChoice === 'scissors') {
             return 'computer';
         } else {
             return 'player';
         }
-    } else if (playerChoice === 'ciseaux') {
-        if (computerChoice === 'pierre') {
+    } else if (playerChoice === 'scissors') {
+        if (computerChoice === 'rock') {
             return 'computer';
         } else {
             return 'player';
         }
     }
+}
+
+
+// Jouer un tour aléatoire
+function playRandom() {
+    const choices = ['rock', 'paper', 'scissors'];
+    const randomNumber = Math.floor(Math.random() * 3);
+    const computerChoice = choices[randomNumber];
+    const playerChoice = choices[(randomNumber + 1) % 3];
+    showChoices(playerChoice, computerChoice);
+    const winner = getWinner(playerChoice, computerChoice);
+    showResult(winner, computerChoice);
+    updateScore(winner);
 }
 
 // Afficher le résultat
