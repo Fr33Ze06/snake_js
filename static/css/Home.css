@@ -29,10 +29,77 @@ button {
     position: fixed;
     z-index: 99;
     display: flex;
-    align-items: center;
-    justify-content: end;
     height: 60px;
     background: var(--couleur_principale);
+    display: flex;
+    padding: 50px;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: first baseline;
+    width: 100%;
+    list-style: none;
+}
+
+.navbar .logo{
+    font-size: 2em;
+    font-weight: bold;
+}
+  
+.navbar a{
+    color: black;
+}
+  
+.navbar .nav .Menu {
+    display: flex;
+}
+  
+.navbar .nav .Menu li {
+    margin: 30px;
+    list-style: none;
+}
+  
+.navbar > ul > li {
+    background-color: black;
+    height: 100%;
+}
+  
+.navbar > ul > li > a {
+    transform: translate(-50%, -50%);
+}
+  
+li a {
+    text-decoration: none;
+    color: black;
+    align-items: center;
+}
+  
+.sous {
+    width: 100%;
+    overflow: hidden;
+    max-height: 0px;
+    margin-left:-30px;
+}
+  
+.sous > li:hover {
+    background-color: rgba(33, 105, 236, 0.3);
+}
+  
+.sous > li:hover > a {
+    color: black;
+}
+  
+@keyframes apparitionSousMenu {
+    0% {
+    }
+    30% {
+    }
+    100% {
+      max-height: 50em;
+    }
+}
+  
+.menu-deroulant:hover > .sous {
+    animation: apparitionSousMenu 1s forwards;
 }
 
 .button {

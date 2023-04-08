@@ -3,7 +3,6 @@ const playerScoreEl = document.getElementById('player-score');
 const computerScoreEl = document.getElementById('computer-score');
 const resultEl = document.getElementById('result');
 const resetEl = document.getElementById('reset');
-const countdownEl = document.getElementById('countdown');
 
 let playerScore = 0;
 let computerScore = 0;
@@ -12,8 +11,12 @@ let timer;
 // Jouer un tour
 function play(e) {
     resetEl.style.display = 'none';
+    countdown();
     const playerChoice = e.target.id;
     const computerChoice = getComputerChoice();
+    /*if(playerChoice === ){
+        playerChoice === playRandom();
+    }*/
     showChoices(playerChoice, computerChoice);
     const winner = getWinner(playerChoice, computerChoice);
     showResult(winner, computerChoice);
@@ -21,20 +24,33 @@ function play(e) {
 }
 
 function countdown() {
-    let count = 6;
-    countdownEl.innerText = count;
-    let words = ["un", "deux", "trois", "Pierre", "Feuille", "Ciseaux"];
-    let i = 0;
-    timer = setInterval(function() {
-        count--;
-        countdownEl.innerText = words[i];
-        i++;
-        if (count === 0) {
-            clearInterval(timer);
-            playRandom();
-        }
+    const words = ["Un", "Deux", "Trois", "Pierre", "Feuille", "Ciseaux"];
+    const wordElement = document.getElementById("word");
+    let count = 0;
+    
+    const intervalId = setInterval(() => {
+      if (count < words.length) {
+        wordElement.innerText = words[count];
+        count++;
+      } else {
+        clearInterval(intervalId);
+      }
     }, 1000);
+    
+    setTimeout(() => {
+      clearInterval(intervalId);
+      wordElement.innerText = "";
+    }, 7000);
+    
 }
+
+// Jouer un tour aléatoire
+function playRandom() {
+    const choices = ['rock', 'paper', 'scissors'];
+    const randomNumber = Math.floor(Math.random() * 3);
+    return choices[randomNumber];
+}
+
 // Obtenir le choix de l'ordinateur
 function getComputerChoice() {
     const choices = ['rock', 'paper', 'scissors'];
@@ -73,19 +89,6 @@ function getWinner(playerChoice, computerChoice) {
             return 'player';
         }
     }
-}
-
-
-// Jouer un tour aléatoire
-function playRandom() {
-    const choices = ['rock', 'paper', 'scissors'];
-    const randomNumber = Math.floor(Math.random() * 3);
-    const computerChoice = choices[randomNumber];
-    const playerChoice = choices[(randomNumber + 1) % 3];
-    showChoices(playerChoice, computerChoice);
-    const winner = getWinner(playerChoice, computerChoice);
-    showResult(winner, computerChoice);
-    updateScore(winner);
 }
 
 // Afficher le résultat

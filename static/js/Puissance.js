@@ -1,7 +1,11 @@
 document.addEventListener("DOMContentLoaded", function() {
+  const redscore = document.getElementById('score1');
+  const yellowscore = document.getElementById('score2');
+
+  let score1 = 0;
+  let score2 = 0;
   const cells = document.querySelectorAll(".cell");
-let currentPlayer = "red";
-let currentPlayer2 = "yellow";
+  let currentPlayer = "red";
 
 cells.forEach((cell) => {
   cell.addEventListener("click", (e) => {
@@ -23,13 +27,12 @@ cells.forEach((cell) => {
     if (targetCell.classList.contains("empty")) {
       targetCell.classList.remove("empty");
       targetCell.classList.add(currentPlayer);
-      targetCell.classList.add(currentPlayer2);
-      checkWin();
-      if(currentPlayer){
-        currentPlayer2;
+      if(currentPlayer === "red"){
+        currentPlayer = "yellow";
       }else{
-        currentPlayer;
+        currentPlayer= "red";
       }
+      checkWin();
     }
   });
 });
@@ -56,13 +59,13 @@ function checkWin() {
   for (let i = 0; i < rows.length; i++) {
     for (let j = 0; j < 4; j++) {
       if (
-        rows[i].children[j].classList.contains(currentPlayer,currentPlayer2) &&
-        rows[i].children[j + 1].classList.contains(currentPlayer,currentPlayer2) &&
-        rows[i].children[j + 2].classList.contains(currentPlayer,currentPlayer2) &&
-        rows[i].children[j + 3].classList.contains(currentPlayer,currentPlayer2)
+        rows[i].children[j].classList.contains(currentPlayer) &&
+        rows[i].children[j + 1].classList.contains(currentPlayer) &&
+        rows[i].children[j + 2].classList.contains(currentPlayer) &&
+        rows[i].children[j + 3].classList.contains(currentPlayer)
       ) {
         alert(`${currentPlayer} wins!`);
-        resetBoard();
+        updateScore();
         return;
       }
     }
@@ -72,13 +75,13 @@ function checkWin() {
   for (let i = 0; i < cols.length; i++) {
     for (let j = 0; j < 3; j++) {
       if (
-        cols[i].classList.contains(currentPlayer,currentPlayer2) &&
-        cols[i + 7].classList.contains(currentPlayer,currentPlayer2) &&
-        cols[i + 14].classList.contains(currentPlayer,currentPlayer2) &&
-        cols[i + 21].classList.contains(currentPlayer,currentPlayer2)
+        cols[i].classList.contains(currentPlayer) &&
+        cols[i + 7].classList.contains(currentPlayer) &&
+        cols[i + 14].classList.contains(currentPlayer) &&
+        cols[i + 21].classList.contains(currentPlayer)
       ) {
         alert(`${currentPlayer} wins!`);
-        resetBoard();
+        updateScore();
         return;
       }
     }
@@ -87,13 +90,13 @@ function checkWin() {
   // Check diagonals
   for (let i = 0; i < diagonals.length; i++) {
     if (
-      diagonals[i][0].classList.contains(currentPlayer,currentPlayer2) &&
-      diagonals[i][1].classList.contains(currentPlayer,currentPlayer2) &&
-      diagonals[i][2].classList.contains(currentPlayer,currentPlayer2) &&
-      diagonals[i][3].classList.contains(currentPlayer,currentPlayer2)
+      diagonals[i][0].classList.contains(currentPlayer) &&
+      diagonals[i][1].classList.contains(currentPlayer) &&
+      diagonals[i][2].classList.contains(currentPlayer) &&
+      diagonals[i][3].classList.contains(currentPlayer)
     ) {
       alert(`${currentPlayer} wins!`);
-      resetBoard();
+      updateScore();
       return;
     }
   }
@@ -105,8 +108,21 @@ function checkWin() {
   }
 
   if (fullCols === cols.length) {
-    alert("It's a tie!");
+    alert("Egalité!");
     resetBoard();
+  }
+}
+
+function updateScore() {
+  if (currentPlayer === 'red') {
+      score1++;
+      redscore.innerText = score1;
+  } else if (currentPlayer === 'yellow') {
+      score2++;
+      yellowscore.innerText = score2;
+  }
+  if (score1 === 1 || score2 === 1) {
+      resetBoard();
   }
 }
 
@@ -118,6 +134,7 @@ function resetBoard() {
   }
   currentPlayer = "red";
 }
+
 
 resetBtn.addEventListener("click", () => {
   resetBoard();

@@ -14,20 +14,24 @@ body {
 
 h1{
     position: relative;
-    top: 2%;
+    top: 3%;
+    font-size: 3em;
 }
 
 h3{
     position: relative;
-    top: 46%;
+    top: 41%;
+    left: -5%;
+    font-size: 1.5em;
 }
 
 .scoreboard {
     display: flex;
     justify-content: space-around;
-    margin: 30px 0;
+    margin: 30px -43px;
     position: relative;
-    top: 5%;
+    top: 7%;
+    font-size: 1.5em;
 }
 
 .player-score{
@@ -41,8 +45,9 @@ h3{
 }
 
 .choices{
-    top: 50%;
+    top: 45%;
     position: relative;
+    left: -5%;
 }
 
 .choice {
@@ -64,12 +69,13 @@ h3{
 .result {
     margin: 30px 0;
     position: relative;
-    top: 50%;
-    left: -2.5%;
+    top: 45%;
+    left: -6.5%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 2em;
 }
 
 #reset {
@@ -78,7 +84,7 @@ h3{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    background-color:var(--couleur_fond);
+    background-color:red;
     transition: 0.3s;
 }
 
@@ -91,6 +97,10 @@ h3{
     box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
 }
 
-#countdown {
+#word {
     color: black;
+    font-size: 2.5em;
+    position: relative;
+    top: 20%;
+    left: -5%;
 }
