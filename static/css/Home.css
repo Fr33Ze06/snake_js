@@ -44,17 +44,29 @@ button {
     font-size: 2em;
     font-weight: bold;
 }
+
+title{
+    font-size: 2em;
+    color: black;   
+    font-weight: bold 
+}
   
 .navbar a{
     color: black;
 }
-  
+
+.nav{
+    position: relative;
+    left: 55%;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
 .navbar .nav .Menu {
     display: flex;
 }
   
 .navbar .nav .Menu li {
-    margin: 30px;
+    margin: 0 30px;
     list-style: none;
 }
   
@@ -72,12 +84,25 @@ li a {
     color: black;
     align-items: center;
 }
+
+.Menu{
+    bottom: 15px;
+    position: relative;
+    left: 15%;
+}
   
 .sous {
     width: 100%;
     overflow: hidden;
     max-height: 0px;
     margin-left:-30px;
+    padding: 12px 0;
+    position: relative;
+}
+
+.sous li{
+    padding: 10px 0;
+    position: relative;
 }
   
 .sous > li:hover {
@@ -86,6 +111,7 @@ li a {
   
 .sous > li:hover > a {
     color: black;
+    padding: 0 10px;
 }
   
 @keyframes apparitionSousMenu {
@@ -103,11 +129,14 @@ li a {
 }
 
 .button {
-    height: 40px;
-    width: 80px;
+    height: 50px;
+    width: 100px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+    left: 28%;
+    bottom: 15px;
     margin-right: 25px;
     padding: 5px;
     border-radius: 10px;
@@ -126,6 +155,13 @@ li a {
 
 .button>img {
     display: none;
+}
+
+.button_user_img{
+    position: relative;
+   align-items: center;
+   justify-content: center;
+   bottom: -5px;
 }
 
 
@@ -272,7 +308,7 @@ li a {
 
 .hover-underline-animation {
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: 40px;
 }
 
 .hover-underline-animation:after {
@@ -313,16 +349,27 @@ li a {
     height: 1%; /* définir la hauteur souhaitée */
     position: relative;
     left: 35%;
+    top: 15%;
 }
 
 #tabsnake{
     position: relative;
     font-size: 1em;
     left: -1.5%;
+    top: 25px;
 }
 
 #tabsnake tr th{
     padding: 10px 10px;
+}
+
+#bodysnake{
+    position: relative;
+    top: 25px;
+}
+
+#bodypierre tr td{
+    padding: 0 10px;
 }
 
 .div_text {
@@ -379,10 +426,21 @@ li a {
 thead{
     padding: 20%;
 }
+.snake{
+        position: absolute;
+        top: 330px;
+        margin-left: 95%;
+        border-top-left-radius: 100px;
+        height: 300px;
+        width: 30px;
+        background: rgb(21, 21, 19);
+    display: flex;      
+}
 
 h3{
     position: relative;
     left: 9px;
+    top: 13%;
 }
 
 .tag3::before {
@@ -408,8 +466,8 @@ hr {
     position: relative;
     left: -100%;
     width: 300%;
-    margin-bottom: 10%;
-    margin-top: 10%;
+    margin-bottom: 30%;
+    margin-top: 30%;
 }
 
 .button_secondary {
@@ -437,6 +495,7 @@ hr {
     margin-top: 20%;
     text-align: center;
 }
+
 
 @media screen and (width < 500px) {
     .sidebar {
@@ -466,4 +525,6 @@ hr {
         position: absolute;
         left: 0;
     }
+
 }
+

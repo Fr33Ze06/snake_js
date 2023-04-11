@@ -102,7 +102,7 @@ h1 {
     background-color: var(--couleur_principale);
     border: black 2px;
     color: var(--couleur_texte_principal);
-    margin-top: -5px;
+    transform: translateY(-5px);
     color: red;
     box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
 }

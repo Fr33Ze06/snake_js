@@ -82,6 +82,7 @@ function checkWin() {
       ) {
         alert(`${currentPlayer} wins!`);
         updateScore();
+        resetBoard;
         return;
       }
     }
@@ -120,9 +121,6 @@ function updateScore() {
   } else if (currentPlayer === 'yellow') {
       score2++;
       yellowscore.innerText = score2;
-  }
-  if (score1 === 1 || score2 === 1) {
-      resetBoard();
   }
 }
 
