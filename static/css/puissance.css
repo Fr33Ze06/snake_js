@@ -44,12 +44,12 @@ h1{
   
 .red {
     background-color: #f00;
-    border-radius: 20px;
+    border-radius: 50%;
 }
   
 .yellow {
     background-color: #ff0;
-    border-radius: 20px;
+    border-radius: 50%;
 }
 
 .score1{
