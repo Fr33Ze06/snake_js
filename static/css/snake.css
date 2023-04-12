@@ -107,9 +107,13 @@ h1 {
     box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
 }
 
-.apple{
-    background-color: red;
-    border-radius: 50%;
+.oeil {
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%; */
+    width: 20px;
+    height: 20px;
+    /* transform: translate(-50%, -50%); */
 }
 
 #aff p{
@@ -118,4 +122,40 @@ h1 {
     text-align: center;
     top: 830px;
     position: relative;
+}
+
+.headup{
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.headdown{
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+
+.headright{
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.headleft{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.coinHG{
+    border-top-left-radius: 50%;
+}
+
+.coinHD{
+    border-top-right-radius: 50%;
+}
+
+.coinBG{
+    border-bottom-left-radius: 50%;
+}
+
+.coinBD{
+    border-bottom-right-radius: 50%;
 }

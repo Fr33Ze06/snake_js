@@ -13,16 +13,18 @@ document.addEventListener("DOMContentLoaded", function() {
             row.appendChild(caseElement);
         }
     }
-    var CHEMINIMG = "C:/Users/User/Documents/GitHub/snake_js/img/snake_graphics/"
-    var IMGapple = document.createElement("img"); IMGapple.src = CHEMINIMG+"apple.png";
-    var IMGheadup = document.createElement("img"); IMGheadup.src = CHEMINIMG+"head_up.png";
-    var IMGheadright = document.createElement("img"); IMGheadright.src = CHEMINIMG+"head_right.png";
-    var IMGheadleft = document.createElement("img"); IMGheadleft.src = CHEMINIMG+"head_left.png";
-    var IMGheaddown = document.createElement("img"); IMGheaddown.src = CHEMINIMG+"head_down.png";
-    var IMGtailup = document.createElement("img"); IMGtailup.src = CHEMINIMG+"tail_up.png";
-    var IMGtailleft = document.createElement("img"); IMGtailleft.src = CHEMINIMG+"tail_left.png";
-    var IMGtailright = document.createElement("img"); IMGtailright.src = CHEMINIMG+"tail_right.png";
-    var IMGtaildown = document.createElement("img"); IMGtaildown.src = CHEMINIMG+"tail_down.png";
+    var CHEMIN_IMG_SNAKE = "C:/Users/User/Documents/GitHub/snake_js/img/snake_graphics/"
+    var IMGapple = document.createElement("img"); IMGapple.src = CHEMIN_IMG_SNAKE+"apple.png";
+    var IMGheadup = document.createElement("img"); IMGheadup.src = CHEMIN_IMG_SNAKE+"head_up.png";
+    var IMGheadright = document.createElement("img"); IMGheadright.src = CHEMIN_IMG_SNAKE+"head_right.png";
+    var IMGheadleft = document.createElement("img"); IMGheadleft.src = CHEMIN_IMG_SNAKE+"head_left.png";
+    var IMGheaddown = document.createElement("img"); IMGheaddown.src = CHEMIN_IMG_SNAKE+"head_down.png";
+    var IMGtailup = document.createElement("img"); IMGtailup.src = CHEMIN_IMG_SNAKE+"tail_up.png";
+    var IMGtailleft = document.createElement("img"); IMGtailleft.src = CHEMIN_IMG_SNAKE+"tail_left.png";
+    var IMGtailright = document.createElement("img"); IMGtailright.src = CHEMIN_IMG_SNAKE+"tail_right.png";
+    var IMGtaildown = document.createElement("img"); IMGtaildown.src = CHEMIN_IMG_SNAKE+"tail_down.png";
+    var IMGoeil_1 = document.createElement("img"); IMGoeil_1.src = CHEMIN_IMG_SNAKE+"oeil_snake_1.png"; IMGoeil_1.classList.add('oeil');
+    var IMGoeil_2 = document.createElement("img"); IMGoeil_2.src = CHEMIN_IMG_SNAKE+"oeil_snake_2.png"; IMGoeil_2.classList.add('oeil');
     
     const snake = [{ x: 4, y: 2 },
         { x: 3, y: 2 },
@@ -62,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function() {
     function update() {
         // Mettre à jour la position du serpent
         const head = { x: snake[0].x, y: snake[0].y };
-            
+
         switch (direction) {
             case 'up':
                 head.y--;
@@ -76,24 +78,78 @@ document.addEventListener("DOMContentLoaded", function() {
             case 'right':
                 head.x++;
                 break;
-        }
-
+        }        
+        
         snake.unshift(head);
-                            
+
         IsEnd(head,snake);
                             
         if (end != true){
             // Effacer le gameboard
             gameBoard.querySelectorAll('.snake').forEach(segment => {
                 segment.classList.remove('snake');
+                segment.classList.remove('headup');
+                segment.classList.remove('headright');
+                segment.classList.remove('headleft');
+                segment.classList.remove('headdown');
+                segment.classList.remove('coinHD');
+                segment.classList.remove('coinHG');
+                segment.classList.remove('coinBD');
+                segment.classList.remove('coinBG');
             });
                                 
             // Dessiner le serpent sur le gameboard
             snake.forEach(segment => {
                 const caseSnake = document.getElementById(`${segment.x}-${segment.y}`);
                 caseSnake.classList.add('snake');
-                caseSnake.appendChild(IMGapple);
             });
+
+            
+            const caseHead = document.getElementById(`${head.x}-${head.y}`);
+            caseHead.appendChild(IMGoeil_1);
+            switch (direction) {
+                case 'up':
+                    caseHead.classList.add('headup');
+                    break;
+                case 'down':
+                    caseHead.classList.add('headdown');
+                    break;
+                case 'left':
+                    caseHead.classList.add('headleft');
+                    break;
+                case 'right':
+                    caseHead.classList.add('headright');
+                    break;
+            }
+
+            const behind = snake[snake.length-2];
+            const tail = snake[snake.length-1];
+            const caseTail = document.getElementById(`${snake[snake.length-1].x}-${snake[snake.length-1].y}`);
+            if (tail.x-1 == behind.x){
+                caseTail.classList.add('headright');
+            } else if (tail.x+1 == behind.x){
+                caseTail.classList.add('headleft');
+            } else if (tail.y-1 == behind.y){
+                caseTail.classList.add('headdown');
+            } else if (tail.y+1 == behind.y){
+                caseTail.classList.add('headup');
+            } 
+
+
+            for (i=1; i<snake.length-1; i++){
+                console.log(snake[i]);
+                const caseSnake = document.getElementById(`${snake[i].x}-${snake[i].y}`);
+                if ( ((snake[i-1].x == snake[i].x-1) && (snake[i+1].y == snake[i].y+1)) || ((snake[i-1].y == snake[i].y+1) && (snake[i+1].x == snake[i].x-1)) ){
+                    caseSnake.classList.add('coinHD');
+                } if ( ((snake[i-1].x == snake[i].x+1) && (snake[i+1].y == snake[i].y+1)) || ((snake[i-1].y == snake[i].y+1) && (snake[i+1].x == snake[i].x+1)) ){
+                    caseSnake.classList.add('coinHG');
+                } if ( ((snake[i-1].x == snake[i].x-1) && (snake[i+1].y == snake[i].y-1)) || ((snake[i-1].y == snake[i].y-1) && (snake[i+1].x == snake[i].x-1)) ){
+                    caseSnake.classList.add('coinBD');
+                } if ( ((snake[i+1].x == snake[i].x+1) && (snake[i-1].y == snake[i].y-1)) || ((snake[i-1].x == snake[i].x+1) && (snake[i+1].y == snake[i].y-1)) ){
+                    caseSnake.classList.add('coinBG');
+                }
+            }
+
                                 
             if (head.x == apple.x && head.y == apple.y){
                 Score++;
@@ -142,13 +198,12 @@ document.addEventListener("DOMContentLoaded", function() {
         while (repeat == 1) {
             const randomX = Math.floor(Math.random() * 24);
             const randomY = Math.floor(Math.random() * 17);
-            console.log(repeat);
             if (!snake.includes({x:randomX,y:randomY})){
                 repeat = 0;
             }
         }
         const caseApple = document.getElementById(`${randomX}-${randomY}`);
-        caseApple.classList.add('apple');
+        caseApple.appendChild(IMGapple);
         return  {x: randomX, y: randomY };
     }
     
