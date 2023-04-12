@@ -426,14 +426,15 @@ li a {
 thead{
     padding: 20%;
 }
+
 .snake{
-        position: absolute;
-        top: 330px;
-        margin-left: 95%;
-        border-top-left-radius: 100px;
-        height: 300px;
-        width: 30px;
-        background: rgb(21, 21, 19);
+    position: absolute;
+    top: 330px;
+    margin-left: 20%;
+    border-radius: 10px;
+    height: 600px;
+    width: 300px;
+    background: rgb(21, 21, 19);
     display: flex;      
 }
 
@@ -528,3 +529,19 @@ hr {
 
 }
 
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid black;
+    padding: 20px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+}
+
+@media screen and (max-width: 600px) {
+    .game-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+}

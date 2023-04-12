@@ -82,7 +82,6 @@ function checkWin() {
       ) {
         alert(`${currentPlayer} wins!`);
         updateScore();
-        resetBoard;
         return;
       }
     }
@@ -101,6 +100,7 @@ function checkWin() {
       return;
     }
   }
+  
   let fullCols = 0;
   for (let i = 0; i < cols.length; i++) {
     if (!cols[i].classList.contains("empty")) {
@@ -118,9 +118,11 @@ function updateScore() {
   if (currentPlayer === 'red') {
       score1++;
       redscore.innerText = score1;
+      resetBoard();
   } else if (currentPlayer === 'yellow') {
       score2++;
       yellowscore.innerText = score2;
+      resetBoard();
   }
 }
 
@@ -134,7 +136,7 @@ function resetBoard() {
 }
 
 
-resetBtn.addEventListener("click", () => {
+/*resetBtn.addEventListener("click", () => {
   resetBoard();
-});
+});*/
 })

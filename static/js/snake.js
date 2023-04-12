@@ -13,6 +13,16 @@ document.addEventListener("DOMContentLoaded", function() {
             row.appendChild(caseElement);
         }
     }
+    var CHEMINIMG = "C:/Users/User/Documents/GitHub/snake_js/img/snake_graphics/"
+    var IMGapple = document.createElement("img"); IMGapple.src = CHEMINIMG+"apple.png";
+    var IMGheadup = document.createElement("img"); IMGheadup.src = CHEMINIMG+"head_up.png";
+    var IMGheadright = document.createElement("img"); IMGheadright.src = CHEMINIMG+"head_right.png";
+    var IMGheadleft = document.createElement("img"); IMGheadleft.src = CHEMINIMG+"head_left.png";
+    var IMGheaddown = document.createElement("img"); IMGheaddown.src = CHEMINIMG+"head_down.png";
+    var IMGtailup = document.createElement("img"); IMGtailup.src = CHEMINIMG+"tail_up.png";
+    var IMGtailleft = document.createElement("img"); IMGtailleft.src = CHEMINIMG+"tail_left.png";
+    var IMGtailright = document.createElement("img"); IMGtailright.src = CHEMINIMG+"tail_right.png";
+    var IMGtaildown = document.createElement("img"); IMGtaildown.src = CHEMINIMG+"tail_down.png";
     
     const snake = [{ x: 4, y: 2 },
         { x: 3, y: 2 },
@@ -70,8 +80,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
         snake.unshift(head);
                             
-        console.log(snake)
-                            
         IsEnd(head,snake);
                             
         if (end != true){
@@ -84,13 +92,14 @@ document.addEventListener("DOMContentLoaded", function() {
             snake.forEach(segment => {
                 const caseSnake = document.getElementById(`${segment.x}-${segment.y}`);
                 caseSnake.classList.add('snake');
+                caseSnake.appendChild(IMGapple);
             });
                                 
             if (head.x == apple.x && head.y == apple.y){
                 Score++;
                 GiveScore(Score);
                 const caseApple = document.getElementById(`${apple.x}-${apple.y}`);
-                caseApple.classList.remove('apple');
+                caseApple.removeChild(IMGapple);
                 apple = AffRandomApple(snake)
             }else{
                 snake.pop();
@@ -133,19 +142,13 @@ document.addEventListener("DOMContentLoaded", function() {
         while (repeat == 1) {
             const randomX = Math.floor(Math.random() * 24);
             const randomY = Math.floor(Math.random() * 17);
-            snake.forEach(segment => {
-                if (segment.x == randomX && segment.y == randomY){
-                    repeat = 2;
-                }
-            });
-            if (repeat == 1){
-                break;
+            console.log(repeat);
+            if (!snake.includes({x:randomX,y:randomY})){
+                repeat = 0;
             }
         }
-        console.log(randomX,randomY)
         const caseApple = document.getElementById(`${randomX}-${randomY}`);
         caseApple.classList.add('apple');
-        console.log(caseApple)
         return  {x: randomX, y: randomY };
     }
     
