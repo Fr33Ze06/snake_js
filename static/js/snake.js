@@ -23,8 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
     var IMGtailleft = document.createElement("img"); IMGtailleft.src = CHEMIN_IMG_SNAKE+"tail_left.png";
     var IMGtailright = document.createElement("img"); IMGtailright.src = CHEMIN_IMG_SNAKE+"tail_right.png";
     var IMGtaildown = document.createElement("img"); IMGtaildown.src = CHEMIN_IMG_SNAKE+"tail_down.png";
-    var IMGoeil_1 = document.createElement("img"); IMGoeil_1.src = CHEMIN_IMG_SNAKE+"oeil_snake_1.png"; IMGoeil_1.classList.add('oeil');
-    var IMGoeil_2 = document.createElement("img"); IMGoeil_2.src = CHEMIN_IMG_SNAKE+"oeil_snake_2.png"; IMGoeil_2.classList.add('oeil');
     
     const snake = [{ x: 4, y: 2 },
         { x: 3, y: 2 },
@@ -106,7 +104,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
             
             const caseHead = document.getElementById(`${head.x}-${head.y}`);
-            caseHead.appendChild(IMGoeil_1);
             switch (direction) {
                 case 'up':
                     caseHead.classList.add('headup');
