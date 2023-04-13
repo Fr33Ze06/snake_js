@@ -140,13 +140,36 @@
                 </table>
           </div>
       </aside>
+
+    <article class="content">
+      <div class="cards">
+          <a href="/Snake"><img class="sn" src="../img/snn.png" alt=""></a>
+      </div>
+      <div class="cardp">
+          <a href="../tmpl/Pierre.html"><img class="pie" src="../img/ppc.png" alt=""></a>
+      </div>
+      <div class="cardpi">
+          <a href="../tmpl/puissance.html"><img class="pi" src="../img/puissa.png" alt=""></a>
+      </div>
+    </article>
+
+    <div id="container" class="container" style="display:none">
+      <h2>Bienvenue sur Ploto</h2>
+      <form method="POST" action="/API/Log" class="formulaire" id="form_log">
+          <input id="in_pseudo" type="text" placeholder="Nom du joueur" required name="pseudo">
+          <div class="div_input"><input id="in_passwd" type="password" placeholder="Mot de passe" required name="password">
+              <span class="img_input">
+                  <img class="eye" id="eye" src="../img/eye.svg" alt="eye">
+                  <img class="eye-off" id="eye-off" src="../img/oeil.png" alt="eye">
+              </span>
+          </div>
+          <p id="resultat"></p>
+          <button type="submit" id="signup" onclick="enregistrer()">New Game</button>
+      </form>
+    </div>
     
-    <form class="game_container">
-      <div class="snake" id="snake"></div>
-      <div id="pierre"></div>
-      <div id="puissance"></div>
-    </form>
     
         
   </body>
+    
 </html>
