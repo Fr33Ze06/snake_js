@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
             row.appendChild(caseElement);
         }
     }
-    var CHEMIN_IMG_SNAKE = "C:/Users/User/Documents/GitHub/snake_js/img/snake_graphics/"
+    var CHEMIN_IMG_SNAKE = "../img/snake_graphics/"
     var IMGapple = document.createElement("img"); IMGapple.src = CHEMIN_IMG_SNAKE+"apple.png";
     var IMGheadup = document.createElement("img"); IMGheadup.src = CHEMIN_IMG_SNAKE+"head_up.png";
     var IMGheadright = document.createElement("img"); IMGheadright.src = CHEMIN_IMG_SNAKE+"head_right.png";
