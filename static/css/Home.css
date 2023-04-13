@@ -110,8 +110,7 @@ li a {
 }
   
 .sous > li:hover > a {
-    color: black;
-    padding: 0 10px;
+    color: black;   
 }
   
 @keyframes apparitionSousMenu {
@@ -427,16 +426,100 @@ thead{
     padding: 20%;
 }
 
-.snake{
-    position: absolute;
-    top: 330px;
-    margin-left: 20%;
-    border-radius: 10px;
-    height: 600px;
-    width: 300px;
-    background: rgb(21, 21, 19);
-    display: flex;      
+@media screen and (width > 500px) {
+    .content {
+        margin: 3% 3% 3% calc(340px + 3%);
+    }
 }
+
+.content {
+    margin-top: 6%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(1vw + 5px);
+    position: relative;
+    align-items: center;
+    /* grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;*/
+}
+
+@media screen and (width > 500px) {
+    .card {
+        max-width: 450px;
+    }
+}
+
+.cards {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    background-color: var(--couleur_principale);
+    height: 300px;
+    cursor: pointer;  
+    background-color: rgb(10, 181, 30);
+    transition: 0.3s;
+}
+
+.cards:hover {
+    transform: translateY(-5px);
+    backdrop-filter: blur(7px);
+}
+
+.cardp {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    background-color: var(--couleur_principale);
+    height: 300px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cardp:hover {
+    transform: translateY(-5px);
+}
+
+
+.cardpi {
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    width: 450px;
+    background-color: var(--couleur_principale);
+    height: 300px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cardpi:hover {
+    transform: translateY(-5px);
+}
+
+.pie{
+    width: 50%;
+    position: relative;
+    left: 25%;
+    top: 15%;
+}
+
+.sn{
+    width: 50%;
+    position: relative;
+    left: 25%;
+    top: 15%;
+}
+
+.pi{
+    width: 50%;
+    position: relative;
+    left: 25%;
+    top: 15%;
+}
+
 
 h3{
     position: relative;
@@ -527,21 +610,4 @@ hr {
         left: 0;
     }
 
-}
-
-.game-container {
-    max-width: 800px;
-    margin: 0 auto;
-    border: 1px solid black;
-    padding: 20px;
-    position: relative;
-    top: 50%;
-    left: 50%;
-}
-
-@media screen and (max-width: 600px) {
-    .game-container {
-        max-width: 100%;
-        padding: 10px;
-    }
 }
