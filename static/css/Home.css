@@ -110,8 +110,7 @@ li a {
 }
   
 .sous > li:hover > a {
-    color: black;
-    padding: 0 10px;
+    color: black;   
 }
   
 @keyframes apparitionSousMenu {
@@ -429,14 +428,33 @@ thead{
 
 .snake{
     position: absolute;
-    top: 330px;
-    margin-left: 20%;
-    border-radius: 10px;
-    height: 600px;
-    width: 300px;
-    background: rgb(21, 21, 19);
+    top: 180px;
+    margin-left: 18%;
     display: flex;      
 }
+
+#pierre{
+    position: absolute;
+    top: 180px;
+    margin-left: 68%;
+    display: flex;      
+}
+
+#puissance{
+    position: absolute;
+    top: 580px;
+    margin-left: 35%;
+    display: flex;      
+}
+
+.pie{
+    width: 50%;
+}
+
+.sn{
+    width: 50%;
+}
+
 
 h3{
     position: relative;
@@ -545,3 +563,4 @@ hr {
         padding: 10px;
     }
 }
+
