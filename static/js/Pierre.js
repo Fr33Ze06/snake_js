@@ -14,41 +14,10 @@ function play(e) {
     countdown();
     const playerChoice = e.target.id;
     const computerChoice = getComputerChoice();
-    /*if(playerChoice === ){
-        playerChoice === playRandom();
-    }*/
     showChoices(playerChoice, computerChoice);
     const winner = getWinner(playerChoice, computerChoice);
     showResult(winner, computerChoice);
     updateScore(winner);
-}
-
-function countdown() {
-    const words = ["Un", "Deux", "Trois", "Pierre", "Feuille", "Ciseaux"];
-    const wordElement = document.getElementById("word");
-    let count = 0;
-    
-    const intervalId = setInterval(() => {
-      if (count < words.length) {
-        wordElement.innerText = words[count];
-        count++;
-      } else {
-        clearInterval(intervalId);
-      }
-    }, 1000);
-    
-    setTimeout(() => {
-      clearInterval(intervalId);
-      wordElement.innerText = "";
-    }, 7000);
-    
-}
-
-// Jouer un tour aléatoire
-function playRandom() {
-    const choices = ['rock', 'paper', 'scissors'];
-    const randomNumber = Math.floor(Math.random() * 3);
-    return choices[randomNumber];
 }
 
 // Obtenir le choix de l'ordinateur

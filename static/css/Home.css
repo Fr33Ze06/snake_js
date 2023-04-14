@@ -542,10 +542,6 @@ hr {
     top: -235px;
 }
 
-.flou{
-    -webkit-filter: blur(4px);
-}
-
 h2 {
     margin-bottom: 10%;
     position: relative;

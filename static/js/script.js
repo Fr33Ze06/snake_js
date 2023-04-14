@@ -17,14 +17,4 @@ document.addEventListener("DOMContentLoaded", function() {
         eye.style.display = "block";
         passwordField.type = "password";
     });
-
-    non.addEventListener("click", function() {
-        pop.style.display = "block";
-        close.style.display = "block";
-    });
-
-    close.addEventListener("click", function() {
-        pop.style.display = "none";
-        close.style.display = "none";
-    });
 });
