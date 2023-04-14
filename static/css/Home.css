@@ -46,6 +46,10 @@ button {
     text-decoration: none;
     position: relative;
     bottom: 10px;
+<<<<<<< Updated upstream
+=======
+    color: blue;
+>>>>>>> Stashed changes
 }
 
 .navbar a{
@@ -201,18 +205,11 @@ button {
     font-size: large;
 }
 
-.element_tag {
-    margin: 20px 0 0 20px;
-
-}
-
 .tag {
     font-weight: 400;
     font-size: large;
     position: relative;
 }
-
-
 
 .tag span {
     padding-bottom: 7px;
@@ -221,7 +218,6 @@ button {
     padding-right: 15px;
     text-transform: uppercase;
 }
-
 
 .tag:hover svg {
     transform: translateX(0);
@@ -254,60 +250,61 @@ button {
     transform-origin: bottom left;
 }
 
-
 .tag1::before {
-    /*content: url(../../img/snake.png);
-    position: absolute;*/
     left: -20px;
 }
 
 .tag2::before {
-    /*content: url(../../img/pierre-papier-ciseaux.png);
-    height: 1%; /* définir la hauteur souhaitée */
     position: relative;
     text-align: center;
     align-items: center;
 }
 
 .element_tag {
-    /*content: url(../../img/pierre-papier-ciseaux.png);
-    height: 1%; /* définir la hauteur souhaitée */
     position: relative;
     left: 35%;
     top: 15%;
+    margin: 20px 0 0 20px;
+    margin-bottom: 5%;
+    position: relative;
 }
 
 #tabsnake{
     position: relative;
     font-size: 1em;
-    left: -1.5%;
+    left: 34%;
     top: 25px;
 }
 
 #tabsnake tr th{
-    padding: 10px 10px;
+    padding: 10px 12px;
 }
 
-#bodysnake{
+#bodysnake tr td{
     position: relative;
     top: 25px;
+    left: -3%;
+    padding: 10px 30px;
 }
 
-#bodypierre tr td{
-    padding: 0 10px;
-}
 
 .div_text {
-    /*content: url(../../img/pierre-papier-ciseaux.png);
-    height: 1%; /* définir la hauteur souhaitée */
     position: relative;
     text-align: center;
     align-items: center;
+    left: -10%;
+}
+
+.div_text button {
+    position: relative;
+    text-align: center;
+    align-items: center;
+    left: 12%;
 }
 
 #tabpierre{
     position: relative;
-    left: -1%;
+    left: 37%;
     font-size: 1.2em;
 }
 
@@ -315,37 +312,36 @@ button {
     padding: 10px 10px;
 }
 
-#bodypierre{
-    position: relative;
-    left: -8%;
-}
-
 #bodypierre tr td{
-    padding: 0 10px;
+    position: relative;
+    padding: 10px 30px;
+    left: -2%;
 }
 
 .div_button_aside {
-    /*content: url(../../img/pierre-papier-ciseaux.png);
-    height: 1%; /* définir la hauteur souhaitée */
     position: relative;
-    left: 3%;
+    left: -5%;
 }
 
 .div_button_aside button {
-    /*content: url(../../img/pierre-papier-ciseaux.png);
-    height: 1%; /* définir la hauteur souhaitée */
     position: relative;
-    left: 25%;
+    left: 35%;
 }
 
 #tabpuissance{
     position: relative;
-    left: -3.8%;
+    left: 30%;
     font-size: 1.2em;
 }
 
 #tabpuissance tr th{
     padding: 10px 10px;
+}
+
+#bodypuissance tr td{
+    position: relative;
+    padding: 10px 30px;
+    left: -5%;
 }
 
 thead{
@@ -454,7 +450,7 @@ thead{
 
 h3{
     position: relative;
-    left: 9px;
+    left: 5%;
     top: 13%;
 }
 
@@ -481,7 +477,7 @@ hr {
     position: relative;
     left: -100%;
     width: 300%;
-    margin-bottom: 30%;
+    margin-bottom: 10%;
     margin-top: 30%;
 }
 
