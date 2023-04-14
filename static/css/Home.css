@@ -52,78 +52,6 @@ button {
     color: black;
 }
 
-.nav{
-    position: relative;
-    left: 35%;
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-.navbar .nav .Menu {
-    display: flex;
-}
-  
-.navbar .nav .Menu li {
-    margin: 0 30px;
-    list-style: none;
-}
-  
-.navbar > ul > li {
-    background-color: black;
-    height: 100%;
-}
-  
-.navbar > ul > li > a {
-    transform: translate(-50%, -50%);
-}
-  
-li a {
-    text-decoration: none;
-    color: black;
-    align-items: center;
-}
-
-.Menu{
-    bottom: 15px;
-    position: relative;
-    left: 15%;
-}
-  
-.sous {
-    width: 100%;
-    overflow: hidden;
-    max-height: 0px;
-    margin-left:-30px;
-    padding: 12px 0;
-    position: relative;
-}
-
-.sous li{
-    padding: 10px 0;
-    position: relative;
-}
-  
-.sous > li:hover {
-    background-color: rgba(33, 105, 236, 0.3);
-}
-  
-.sous > li:hover > a {
-    color: black;   
-}
-  
-@keyframes apparitionSousMenu {
-    0% {
-    }
-    30% {
-    }
-    100% {
-      max-height: 50em;
-    }
-}
-  
-.menu-deroulant:hover > .sous {
-    animation: apparitionSousMenu 1s forwards;
-}
-
 .button {
     height: 50px;
     width: 100px;
@@ -131,7 +59,7 @@ li a {
     align-items: center;
     justify-content: center;
     position: relative;
-    left: 18%;
+    left: 43%;
     bottom: 15px;
     margin-right: 25px;
     padding: 5px;
@@ -197,6 +125,7 @@ li a {
 .dropdown-menu {
     display: grid;
     margin-bottom: 28px;
+    position: relative;
 }
 
 @media (width >=500px) {
@@ -613,3 +542,104 @@ hr {
     }
 
 }
+
+.container {
+    display: none;
+    background-color: var(--couleur_principale);
+    display: flex;
+    flex-direction: column;
+    padding: 2%;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    width: 400px;
+    position: relative;
+    left: 42%;
+    top: -235px;
+}
+
+h2 {
+    margin-bottom: 10%;
+    position: relative;
+    text-align: center;
+}
+
+input {
+    margin-bottom: 20px;
+    background-color: var(--couleur_input);
+    border-radius: 10px;
+    padding: 14px;
+    border: none;
+    width: 100%;
+    height: 6vh;
+    border: solid 1px blue;
+    outline: none;
+}
+
+.div_input {
+    position: relative;
+}
+
+.img_input {
+    position: absolute;
+    left: 305px;
+    top: calc(18%);
+    width: 50%;
+    opacity: 0.5;
+    transition: all 0.2s;
+}
+
+.img_input:hover {
+    cursor: pointer;
+    color: #ff4754;
+}
+
+.img_input .eye{
+    position: absolute;
+    left: -35px;
+    top: calc(18%);
+    width: 20%;
+    opacity: 0.5;
+    transition: all 0.2s;
+}
+
+.img_input .eye-off {
+    display: none;
+    position: absolute;
+    left: -35px;
+    top: 0%;
+    width: 20%;
+    opacity: 0.5;
+    transition: all 0.2s;
+}
+
+.formulaire {
+    display: flex;
+    flex-direction: column;
+}
+
+
+#signup{
+    padding: 10px;
+    margin-top: 24px;
+    border-radius: 10px;
+    background-color: var(--couleur_secondaire);
+    color: var(--couleur_principale);
+    border: solid var(--couleur_principale) 2px;
+    height: 5vh;
+    transition: 0.3s;
+}
+
+#signup:hover {
+    background-color: var(--couleur_principale);
+    border: solid var(--couleur_secondaire) 2px;
+    color: var(--couleur_texte_principal);
+}
+
+.Sign a{
+    position: center;
+    margin-top: 12px;
+    position: absolute;
+    color: black;
+    display: block;
+}
+

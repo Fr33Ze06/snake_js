@@ -13,24 +13,6 @@
     <header>
       <nav class="navbar">
         <a href="Home.html" class="logo" >Ploto</a>
-        <div class="nav">
-          <ul class="Menu">
-            <li class="menu-deroulant"><a href="#">Classements</a>
-              <ul class="sous">
-                <li><a href="../tmpl/snake.html">Classement snake</a></li>
-                <li><a href="page5.html">Classement snake</a></li>
-                <li><a href="page5.html">Classement snake</a></li>
-              </ul>
-            </li>
-            <li class="menu-deroulant"><a href="#">Les jeux</a>
-              <ul class="sous">
-                <li><a href="../tmpl/snake.html">Snake</a></li>
-                <li><a href="Pierre.html">Pierre Feuille Ciseaux</a></li>
-                <li><a href="puissance.html">Puissance 4</a></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
         <button class="button" id="open_create">Log in</button>
         <div class="dropdowns">
           <div class="dropdown">
@@ -149,6 +131,19 @@
           <a href="../tmpl/puissance.html"><img class="pi" src="../img/puissa.png" alt=""></a>
       </div>
     </article>
+
+    <div id="container" class="container" style="display: none;">
+      <h2>Bienvenue sur Ploto</h2>
+      <form method="POST" action="../work.sh" class="formulaire" id="form_log">
+          <input id="in_pseudo" type="text" placeholder="Nom du joueur" required name="pseudo">
+          <div class="div_input"><input id="in_passwd" type="password" placeholder="Mot de passe" required name="password">
+              <span class="img_input">
+                  <img class="eye" id="eye" src="../img/eye.svg" alt="eye">
+                  <img class="eye-off" id="eye-off" src="../img/oeil.png" alt="eye">
+              </span>
+          </div>
+      <button type="submit" id="signup" onclick="enregistrer()">New Game</button>
+  </div>
     
         
   </body>
