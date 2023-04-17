@@ -58,6 +58,13 @@ h1 {
     position: relative;
 }
 
+.logo{
+    width: 60%;
+    position: relative;
+    bottom: 10px;
+    background-color: black;
+}
+
 #popup {
     position: fixed;
     width: 300px;

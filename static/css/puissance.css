@@ -19,6 +19,14 @@ body {
     border-radius: 10px;
     left: 9.8%;
 }
+
+.logo{
+    width: 60%;
+    position: relative;
+    bottom: 10px;
+    background-color: black;
+}
+
 h1{
     position: relative;
     top: 4%;

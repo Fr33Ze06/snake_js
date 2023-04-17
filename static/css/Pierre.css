@@ -4,12 +4,18 @@ body {
     background-color: var(--couleur_fond);
     display: flex;
     height: 100vh;
-
 }
 .game {
     max-width: 800px;
     margin: 0 auto;
     text-align: center;
+}
+
+.logo{
+    width: 60%;
+    position: relative;
+    bottom: 10px;
+    background-color: black;
 }
 
 h1{
@@ -97,10 +103,3 @@ h3{
     box-shadow: 0 10px 20px rgba(27, 27, 27, .5);
 }
 
-#word {
-    color: black;
-    font-size: 2.5em;
-    position: relative;
-    top: 20%;
-    left: -5%;
-}
