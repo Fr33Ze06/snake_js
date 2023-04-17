@@ -217,4 +217,26 @@ document.addEventListener("DOMContentLoaded", function() {
         popup.style.display = "block";
         htm.style.filter = blur("7px");
     }
+
+    function sendSnakeScore(score) {
+        let id = logUser.id;
+        let snakeScore = { id: id, score: score };
+        let url = "/API/SnakeScore";
+        let params = {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(snakeScore),
+            method: "POST"
+        };
+        fetch(url, params)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    } 
 });

@@ -160,6 +160,13 @@ func main() {
 			c.Redirect(http.StatusFound, "/")
 		}
 
+		func InsertScore(score interface{}) {
+			_, err = db.Exec("INSERT INTO `scores`(`id_user`, `score`) VALUES (?,?)", score.ID_User, score.Score)
+			if err != nil {
+				fmt.Println(err)
+			}
+		}
+
 	})
 
 	//---------------------------Fin API-------------------------//
