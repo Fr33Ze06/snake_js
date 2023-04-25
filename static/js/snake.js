@@ -13,17 +13,10 @@ document.addEventListener("DOMContentLoaded", function() {
             row.appendChild(caseElement);
         }
     }
+    
     var CHEMIN_IMG_SNAKE = "../img/snake_graphics/"
     var IMGapple = document.createElement("img"); IMGapple.src = CHEMIN_IMG_SNAKE+"apple.png";
-    var IMGheadup = document.createElement("img"); IMGheadup.src = CHEMIN_IMG_SNAKE+"head_up.png";
-    var IMGheadright = document.createElement("img"); IMGheadright.src = CHEMIN_IMG_SNAKE+"head_right.png";
-    var IMGheadleft = document.createElement("img"); IMGheadleft.src = CHEMIN_IMG_SNAKE+"head_left.png";
-    var IMGheaddown = document.createElement("img"); IMGheaddown.src = CHEMIN_IMG_SNAKE+"head_down.png";
-    var IMGtailup = document.createElement("img"); IMGtailup.src = CHEMIN_IMG_SNAKE+"tail_up.png";
-    var IMGtailleft = document.createElement("img"); IMGtailleft.src = CHEMIN_IMG_SNAKE+"tail_left.png";
-    var IMGtailright = document.createElement("img"); IMGtailright.src = CHEMIN_IMG_SNAKE+"tail_right.png";
-    var IMGtaildown = document.createElement("img"); IMGtaildown.src = CHEMIN_IMG_SNAKE+"tail_down.png";
-    
+
     const snake = [{ x: 4, y: 2 },
         { x: 3, y: 2 },
         { x: 2, y: 2 }];
@@ -134,7 +127,6 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
             for (i=1; i<snake.length-1; i++){
-                console.log(snake[i]);
                 const caseSnake = document.getElementById(`${snake[i].x}-${snake[i].y}`);
                 if ( ((snake[i-1].x == snake[i].x-1) && (snake[i+1].y == snake[i].y+1)) || ((snake[i-1].y == snake[i].y+1) && (snake[i+1].x == snake[i].x-1)) ){
                     caseSnake.classList.add('coinHD');
@@ -192,9 +184,10 @@ document.addEventListener("DOMContentLoaded", function() {
         var repeat = 1;
         const randomX = Math.floor(Math.random() * 24);
         const randomY = Math.floor(Math.random() * 17);
-        while (repeat == 1) {
+        while (repeat) {
             const randomX = Math.floor(Math.random() * 24);
             const randomY = Math.floor(Math.random() * 17);
+            console.log(snake.includes({x:randomX,y:randomY}))
             if (!snake.includes({x:randomX,y:randomY})){
                 repeat = 0;
             }
@@ -213,30 +206,8 @@ document.addEventListener("DOMContentLoaded", function() {
     
     function afficherPopup() {
         const popup = document.getElementById("popup");
-        const htm = document.getElementById("html");
         popup.style.display = "block";
-        htm.style.filter = blur("7px");
     }
 
-    function sendSnakeScore(score) {
-        let id = logUser.id;
-        let snakeScore = { id: id, score: score };
-        let url = "/API/SnakeScore";
-        let params = {
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(snakeScore),
-            method: "POST"
-        };
-        fetch(url, params)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
-    } 
+
 });
